@@ -3,7 +3,6 @@ A simple linux script for setting ARM crosscompilation environment for codesourc
 Setup Codesourcery
 ==================
 
-Steps:
 ```
 $ sudo ./setup.sh
 Enter cross comiplation by running: /usr/local/bin/codesourcery-arm-2014.05.sh

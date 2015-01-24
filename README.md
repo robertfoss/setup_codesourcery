@@ -4,8 +4,8 @@ Setup Codesourcery
 ==================
 
 Steps:
-$ sudo ./setup.sh
+´$ sudo ./setup.sh
 Enter cross comiplation by running: /usr/local/bin/codesourcery-arm-2014.05.sh
 $ /usr/local/bin/codesourcery-arm-2014.05.sh
 Type 'exit' to return to non-crosscompile environment
-NOW in crosscompile environment for arm (arm-none-eabi-)
+NOW in crosscompile environment for arm (arm-none-eabi-)´

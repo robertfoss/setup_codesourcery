@@ -55,7 +55,9 @@ export PATH='${BINPATH}':\${PATH}
 export ARCH='${ARCHCODE}'
 export CROSS_COMPILE='${CCPREFIX}-'
 echo "NOW in crosscompile environment for \${ARCH} (\${CROSS_COMPILE})"
-/bin/bash
+
+eval $(getent passwd $(id -un) | awk -F : '{print $NF}')
+
 echo 'Back in non-crosscompile environment'
 __EOF
 	[ ! -x "${SCRIPTFILE}" ] && chmod +x "${SCRIPTFILE}"

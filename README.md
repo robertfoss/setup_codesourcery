@@ -1,4 +1,4 @@
-A simple linux script for setting ARM crosscompilation environment for codesourcery.
+A simple linux script for setting ARM crosscompilation environment with codesourcery.
 
 Originally obtained from: http://www.nas-central.org/wiki/Setting_up_the_codesourcery_toolchain_for_X86_to_ARM9_cross_compiling
 

@@ -72,11 +72,6 @@ __EOF
 ### Install prerequisites
 ###
 
-[ "`whoami`" != "root" ] && {
-	echo "$0: ABORT!!! Only for root user"
-	exit 1
-}
-
 # --> general buildtools & development packages
 #     wget & bzip2 for downloading and unpacking
 echo 'Installing prerequisites:'
@@ -92,8 +87,8 @@ for PACKAGE in ${PACKAGES}
 	[ "${DOINSTALL}" -ne 0 ] && break
 done
 [ "${DOINSTALL}" -ne 0 ] && {
-	apt-get update
-	apt-get install ${PACKAGES}
+	sudo apt-get update
+	sudo apt-get install ${PACKAGES}
 }
 
 
@@ -113,9 +108,22 @@ done
 #
 ### Note: the toolchains for the different targets can be installed in parallel
 
-## Pathes for toolchains, scripts and downloads
-INSTALLPATH='/usr/local/codesourcery'
-SCRIPTPATH='/usr/local/bin'
+[ "`whoami`" != "root" ] && {
+  [ "`echo "${PATH}" | grep -cE "/home/.*/\.local/bin"`" == "0" ] && {
+    echo "$0: Aborting because ${HOME}/.local/bin is not in your path."
+    echo "Run with sudo or add it to your path."
+    exit 1
+  } || {
+    ## Pathes for toolchains, scripts and downloads
+    INSTALLPATH="${HOME}/.local/codesourcery"
+    SCRIPTPATH="${HOME}/.local/bin"
+  }
+} || {
+  ## Pathes for toolchains, scripts and downloads
+  INSTALLPATH='/usr/local/codesourcery'
+  SCRIPTPATH='/usr/local/bin'
+}
+
 SCRIPTPREFIX='codesourcery-'
 DLDIR="/tmp"
 #

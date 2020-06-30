@@ -47,6 +47,7 @@ install_toolchain ()
 
 #	# Create toolchain environment script
 	echo "Creating script file ${SCRIPTFILE} ..."
+	mkdir -p "${SCRIPTPATH}"
 	cat >"${SCRIPTFILE}" << __EOF
 #!/bin/sh
 echo "Type 'exit' to return to non-crosscompile environment"
